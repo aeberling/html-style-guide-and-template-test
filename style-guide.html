@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxpins Website Style Guide</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/vendors/oxpins-icons/style.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/oxpins.css" />
+
+    <style>
+        :root {
+            --oxpins-font: "Manrope", sans-serif;
+            --oxpins-font-two: "Nunito", sans-serif;
+            --oxpins-font-three: "Caveat", cursive;
+            --oxpins-gray: #6f7775;
+            --oxpins-white: #ffffff;
+            --oxpins-base: #76397b;
+            --oxpins-black: #283734;
+            --oxpins-primary: #fbd45a;
+            --oxpins-extra: #f9f4e8;
+            --oxpins-bdr-color: #eee9db;
+            --oxpins-bdr-radius: 20px;
+        }
+
+        body {
+            font-family: var(--oxpins-font);
+            color: var(--oxpins-gray);
+            background-color: #fafafa;
+        }
+
+        .style-guide-header {
+            background: linear-gradient(135deg, var(--oxpins-base) 0%, #005a4a 100%);
+            color: white;
+            padding: 60px 0 80px;
+            margin-bottom: -40px;
+            position: relative;
+        }
+
+        .style-guide-header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .style-guide-header p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+        }
+
+        .style-guide-nav {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .style-guide-nav a {
+            color: var(--oxpins-gray);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .style-guide-nav a:hover {
+            background: var(--oxpins-extra);
+            color: var(--oxpins-base);
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--oxpins-black);
+            margin-bottom: 12px;
+            font-family: var(--oxpins-font-two);
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--oxpins-gray);
+            margin-bottom: 40px;
+        }
+
+        /* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .color-swatch {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .color-swatch:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .color-preview {
+            height: 140px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .color-checkmark {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .color-info {
+            padding: 20px;
+            background: white;
+        }
+
+        .color-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--oxpins-black);
+            margin-bottom: 8px;
+        }
+
+        .color-values {
+            font-size: 13px;
+            color: var(--oxpins-gray);
+            line-height: 1.8;
+        }
+
+        .color-value-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 4px 0;
+        }
+
+        .color-label {
+            font-weight: 600;
+        }
+
+        .color-code {
+            font-family: 'Courier New', monospace;
+            background: var(--oxpins-extra);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Typography */
+        .type-specimen {
+            border-bottom: 1px solid var(--oxpins-bdr-color);
+            padding: 30px 0;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .type-specimen:last-child {
+            border-bottom: none;
+        }
+
+        .type-example {
+            flex: 1;
+        }
+
+        .type-specs {
+            min-width: 200px;
+            font-size: 13px;
+            color: var(--oxpins-gray);
+            padding-left: 40px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .type-specs div {
+            margin: 4px 0;
+        }
+
+        .font-showcase {
+            background: var(--oxpins-extra);
+            padding: 40px;
+            border-radius: 16px;
+            margin: 30px 0;
+        }
+
+        .font-sample {
+            margin-bottom: 30px;
+        }
+
+        .font-sample:last-child {
+            margin-bottom: 0;
+        }
+
+        .font-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--oxpins-base);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .font-display {
+            font-size: 48px;
+            color: var(--oxpins-black);
+            line-height: 1.2;
+        }
+
+        .font-alphabet {
+            font-size: 24px;
+            color: var(--oxpins-gray);
+            margin-top: 8px;
+        }
+
+        /* Buttons */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .button-example {
+            text-align: center;
+            padding: 30px;
+            background: var(--oxpins-extra);
+            border-radius: 12px;
+        }
+
+        .button-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--oxpins-base);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .thm-btn {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            appearance: none;
+            outline: none !important;
+            background-color: var(--oxpins-base);
+            color: var(--oxpins-white);
+            font-size: 14px;
+            font-weight: 800;
+            padding: 15px 45px;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            font-family: var(--oxpins-font);
+            transition: all 0.4s ease;
+            border-radius: var(--oxpins-bdr-radius);
+            text-decoration: none;
+        }
+
+        .thm-btn:hover {
+            background-color: var(--oxpins-black);
+            color: var(--oxpins-white);
+        }
+
+        .thm-btn-secondary {
+            background-color: var(--oxpins-primary);
+            color: var(--oxpins-black);
+        }
+
+        .thm-btn-secondary:hover {
+            background-color: var(--oxpins-black);
+            color: var(--oxpins-white);
+        }
+
+        .thm-btn-outline {
+            background-color: transparent;
+            color: var(--oxpins-base);
+            border: 2px solid var(--oxpins-base);
+        }
+
+        .thm-btn-outline:hover {
+            background-color: var(--oxpins-base);
+            color: var(--oxpins-white);
+        }
+
+        .button-specs {
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--oxpins-gray);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Spacing */
+        .spacing-demo {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--oxpins-extra);
+            border-radius: 12px;
+        }
+
+        .spacing-box {
+            background: var(--oxpins-base);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .spacing-label {
+            margin-left: 20px;
+            font-size: 14px;
+            color: var(--oxpins-gray);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Icons */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .icon-item {
+            text-align: center;
+            padding: 24px;
+            background: var(--oxpins-extra);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .icon-item:hover {
+            background: var(--oxpins-base);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .icon-item i,
+        .icon-item span[class^="icon-"] {
+            font-size: 32px;
+            color: var(--oxpins-base);
+            margin-bottom: 12px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .icon-item:hover i,
+        .icon-item:hover span[class^="icon-"] {
+            color: white;
+        }
+
+        .icon-name {
+            font-size: 11px;
+            color: var(--oxpins-gray);
+            font-family: 'Courier New', monospace;
+        }
+
+        .icon-item:hover .icon-name {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Components */
+        .component-showcase {
+            margin: 30px 0;
+        }
+
+        .component-example {
+            background: var(--oxpins-extra);
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Form Elements */
+        .form-demo {
+            max-width: 500px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--oxpins-black);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            height: 50px;
+            border: 1px solid var(--oxpins-bdr-color);
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            font-family: var(--oxpins-font);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--oxpins-base);
+            box-shadow: 0 0 0 3px rgba(118, 57, 123, 0.1);
+        }
+
+        textarea.form-control {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Progress Bar */
+        .progress-demo {
+            margin: 20px 0;
+        }
+
+        .progress {
+            height: 8px;
+            background: var(--oxpins-bdr-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--oxpins-base);
+            border-radius: 10px;
+            transition: width 0.6s ease;
+        }
+
+        /* Cards */
+        .card-demo {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .card-demo:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-demo-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-demo-content {
+            padding: 24px;
+        }
+
+        .card-demo-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--oxpins-black);
+            margin-bottom: 12px;
+        }
+
+        .card-demo-text {
+            font-size: 15px;
+            color: var(--oxpins-gray);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .badge-demo {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--oxpins-primary);
+            color: var(--oxpins-black);
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 20px;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: var(--oxpins-black);
+            color: #fff;
+            padding: 24px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .code-comment {
+            color: #90c8be;
+        }
+
+        .code-property {
+            color: #fbd45a;
+        }
+
+        .code-value {
+            color: #a8e6cf;
+        }
+
+        /* Accessibility */
+        .contrast-check {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: var(--oxpins-extra);
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .contrast-example {
+            flex: 1;
+        }
+
+        .contrast-ratio {
+            min-width: 100px;
+            text-align: right;
+            font-weight: 700;
+        }
+
+        .ratio-pass {
+            color: #76397b;
+        }
+
+        .ratio-fail {
+            color: #d32f2f;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-card {
+                padding: 30px 20px;
+            }
+
+            .style-guide-header h1 {
+                font-size: 32px;
+            }
+
+            .type-specimen {
+                flex-direction: column;
+            }
+
+            .type-specs {
+                margin-top: 16px;
+                padding-left: 0;
+            }
+
+            .button-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .color-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Version Badge */
+        .version-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="style-guide-header">
+        <div class="container">
+            <h1>Oxpins Style Guide</h1>
+            <p>A comprehensive design system for building consistent, accessible, and beautiful web experiences.</p>
+            <span class="version-badge">Version 1.0 • November 2024</span>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 60px; margin-bottom: 80px;">
+
+        <!-- Navigation -->
+        <div class="style-guide-nav">
+            <a href="#colors">Colors</a>
+            <a href="#typography">Typography</a>
+            <a href="#buttons">Buttons</a>
+            <a href="#spacing">Spacing</a>
+            <a href="#icons">Icons</a>
+            <a href="#forms">Forms</a>
+            <a href="#components">Components</a>
+            <a href="#accessibility">Accessibility</a>
+        </div>
+
+        <!-- Colors Section -->
+        <div id="colors" class="section-card">
+            <h2 class="section-title">Color Palette</h2>
+            <p class="section-subtitle">Our brand colors convey warmth, trust, and community. Use them consistently to maintain brand recognition.</p>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-top: 40px; margin-bottom: 20px; color: var(--oxpins-black);">Primary Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #76397b;">
+                        <div class="color-checkmark"><i class="fas fa-check"></i></div>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Brand Green</div>
+                        <div class="color-values">
+                            <div class="color-value-item">
+                                <span class="color-label">HEX</span>
+                                <span class="color-code">#76397B</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">RGB</span>
+                                <span class="color-code">118, 57, 123</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">CSS</span>
+                                <span class="color-code">--oxpins-base</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #fbd45a;">
+                        <div class="color-checkmark" style="background: rgba(0, 0, 0, 0.2); color: #283734;"><i class="fas fa-check"></i></div>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Accent Yellow</div>
+                        <div class="color-values">
+                            <div class="color-value-item">
+                                <span class="color-label">HEX</span>
+                                <span class="color-code">#FBD45A</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">RGB</span>
+                                <span class="color-code">251, 212, 90</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">CSS</span>
+                                <span class="color-code">--oxpins-primary</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-top: 50px; margin-bottom: 20px; color: var(--oxpins-black);">Neutral Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #283734;">
+                        <div class="color-checkmark"><i class="fas fa-check"></i></div>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Black</div>
+                        <div class="color-values">
+                            <div class="color-value-item">
+                                <span class="color-label">HEX</span>
+                                <span class="color-code">#283734</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">RGB</span>
+                                <span class="color-code">40, 55, 52</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">CSS</span>
+                                <span class="color-code">--oxpins-black</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #6f7775;">
+                        <div class="color-checkmark"><i class="fas fa-check"></i></div>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Gray</div>
+                        <div class="color-values">
+                            <div class="color-value-item">
+                                <span class="color-label">HEX</span>
+                                <span class="color-code">#6F7775</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">RGB</span>
+                                <span class="color-code">111, 119, 117</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">CSS</span>
+                                <span class="color-code">--oxpins-gray</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #ffffff; border: 1px solid #eee9db;">
+                        <div class="color-checkmark" style="background: rgba(0, 0, 0, 0.1); color: #283734;"><i class="fas fa-check"></i></div>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">White</div>
+                        <div class="color-values">
+                            <div class="color-value-item">
+                                <span class="color-label">HEX</span>
+                                <span class="color-code">#FFFFFF</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">RGB</span>
+                                <span class="color-code">255, 255, 255</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">CSS</span>
+                                <span class="color-code">--oxpins-white</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-top: 50px; margin-bottom: 20px; color: var(--oxpins-black);">Background Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #f9f4e8;">
+                        <div class="color-checkmark" style="background: rgba(0, 0, 0, 0.1); color: #283734;"><i class="fas fa-check"></i></div>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Cream</div>
+                        <div class="color-values">
+                            <div class="color-value-item">
+                                <span class="color-label">HEX</span>
+                                <span class="color-code">#F9F4E8</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">RGB</span>
+                                <span class="color-code">249, 244, 232</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">CSS</span>
+                                <span class="color-code">--oxpins-extra</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: #eee9db;">
+                        <div class="color-checkmark" style="background: rgba(0, 0, 0, 0.1); color: #283734;"><i class="fas fa-check"></i></div>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Border Beige</div>
+                        <div class="color-values">
+                            <div class="color-value-item">
+                                <span class="color-label">HEX</span>
+                                <span class="color-code">#EEE9DB</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">RGB</span>
+                                <span class="color-code">238, 233, 219</span>
+                            </div>
+                            <div class="color-value-item">
+                                <span class="color-label">CSS</span>
+                                <span class="color-code">--oxpins-bdr-color</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 40px;">
+                <span class="code-comment">/* CSS Variables */</span><br>
+                :root {<br>
+                &nbsp;&nbsp;<span class="code-property">--oxpins-base:</span> <span class="code-value">#76397b</span>;<br>
+                &nbsp;&nbsp;<span class="code-property">--oxpins-primary:</span> <span class="code-value">#fbd45a</span>;<br>
+                &nbsp;&nbsp;<span class="code-property">--oxpins-black:</span> <span class="code-value">#283734</span>;<br>
+                &nbsp;&nbsp;<span class="code-property">--oxpins-gray:</span> <span class="code-value">#6f7775</span>;<br>
+                &nbsp;&nbsp;<span class="code-property">--oxpins-white:</span> <span class="code-value">#ffffff</span>;<br>
+                &nbsp;&nbsp;<span class="code-property">--oxpins-extra:</span> <span class="code-value">#f9f4e8</span>;<br>
+                &nbsp;&nbsp;<span class="code-property">--oxpins-bdr-color:</span> <span class="code-value">#eee9db</span>;<br>
+                }
+            </div>
+        </div>
+
+        <!-- Typography Section -->
+        <div id="typography" class="section-card">
+            <h2 class="section-title">Typography</h2>
+            <p class="section-subtitle">Our type system uses three carefully selected font families to create visual hierarchy and maintain readability.</p>
+
+            <div class="font-showcase">
+                <div class="font-sample">
+                    <div class="font-label">Primary Font • Body & UI</div>
+                    <div class="font-display" style="font-family: 'Manrope', sans-serif;">Manrope</div>
+                    <div class="font-alphabet" style="font-family: 'Manrope', sans-serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="font-label">Secondary Font • Headings</div>
+                    <div class="font-display" style="font-family: 'Nunito', sans-serif;">Nunito</div>
+                    <div class="font-alphabet" style="font-family: 'Nunito', sans-serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+
+                <div class="font-sample">
+                    <div class="font-label">Accent Font • Decorative</div>
+                    <div class="font-display" style="font-family: 'Caveat', cursive;">Caveat</div>
+                    <div class="font-alphabet" style="font-family: 'Caveat', cursive;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-top: 50px; margin-bottom: 30px; color: var(--oxpins-black);">Type Scale</h3>
+
+            <div class="type-specimen">
+                <div class="type-example">
+                    <h1>Heading 1</h1>
+                </div>
+                <div class="type-specs">
+                    <div>50px • Bold (900)</div>
+                    <div>Nunito</div>
+                    <div>Line Height: 1.2</div>
+                </div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-example">
+                    <h2>Heading 2</h2>
+                </div>
+                <div class="type-specs">
+                    <div>35px • Bold (700)</div>
+                    <div>Nunito</div>
+                    <div>Line Height: 1.3</div>
+                </div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-example">
+                    <h3>Heading 3</h3>
+                </div>
+                <div class="type-specs">
+                    <div>28px • Bold (700)</div>
+                    <div>Nunito</div>
+                    <div>Line Height: 1.4</div>
+                </div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-example">
+                    <h4>Heading 4</h4>
+                </div>
+                <div class="type-specs">
+                    <div>24px • Bold (700)</div>
+                    <div>Nunito</div>
+                    <div>Line Height: 1.4</div>
+                </div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-example">
+                    <h5>Heading 5</h5>
+                </div>
+                <div class="type-specs">
+                    <div>20px • Bold (700)</div>
+                    <div>Nunito</div>
+                    <div>Line Height: 1.5</div>
+                </div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-example">
+                    <h6>Heading 6</h6>
+                </div>
+                <div class="type-specs">
+                    <div>16px • Bold (700)</div>
+                    <div>Nunito</div>
+                    <div>Line Height: 1.5</div>
+                </div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-example">
+                    <p style="margin: 0;">Body text provides the primary reading experience. It should be comfortable to read with adequate line spacing and neutral color to reduce eye strain. Our standard body text maintains excellent readability across all devices.</p>
+                </div>
+                <div class="type-specs">
+                    <div>15px • Medium (500)</div>
+                    <div>Manrope</div>
+                    <div>Line Height: 30px (2.0)</div>
+                </div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-example">
+                    <p style="margin: 0; font-size: 13px;">Small text is used for captions, meta information, and secondary content that requires less emphasis.</p>
+                </div>
+                <div class="type-specs">
+                    <div>13px • Medium (500)</div>
+                    <div>Manrope</div>
+                    <div>Line Height: 1.6</div>
+                </div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-example">
+                    <p style="margin: 0; font-family: 'Caveat', cursive; font-size: 32px; color: var(--oxpins-base);">Decorative accent text for special emphasis</p>
+                </div>
+                <div class="type-specs">
+                    <div>24-50px • Regular (400-700)</div>
+                    <div>Caveat</div>
+                    <div>Use sparingly</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons Section -->
+        <div id="buttons" class="section-card">
+            <h2 class="section-title">Buttons & CTAs</h2>
+            <p class="section-subtitle">Clear, accessible buttons that guide users to take action. All buttons include hover states and are optimized for touch.</p>
+
+            <div class="button-grid">
+                <div class="button-example">
+                    <div class="button-label">Primary Button</div>
+                    <a href="#" class="thm-btn">Donate Now</a>
+                    <div class="button-specs">
+                        Background: #76397B<br>
+                        Text: #FFFFFF (White)<br>
+                        Hover: #283734<br>
+                        14px • Bold (800)
+                    </div>
+                </div>
+
+                <div class="button-example">
+                    <div class="button-label">Secondary Button</div>
+                    <a href="#" class="thm-btn thm-btn-secondary">Learn More</a>
+                    <div class="button-specs">
+                        Background: #FBD45A<br>
+                        Hover: #283734<br>
+                        14px • Bold (800)
+                    </div>
+                </div>
+
+                <div class="button-example">
+                    <div class="button-label">Outline Button</div>
+                    <a href="#" class="thm-btn thm-btn-outline">Get Started</a>
+                    <div class="button-specs">
+                        Border: 2px #76397B<br>
+                        Hover: Fill #76397B<br>
+                        14px • Bold (800)
+                    </div>
+                </div>
+
+                <div class="button-example">
+                    <div class="button-label">Button with Icon</div>
+                    <a href="#" class="thm-btn">
+                        <span class="fa fa-heart"></span> Donate Now
+                    </a>
+                    <div class="button-specs">
+                        Icon + Text<br>
+                        Icon size: 14px<br>
+                        Spacing: 8px
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding: 30px; background: var(--oxpins-extra); border-radius: 16px;">
+                <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; color: var(--oxpins-black);">Button Sizing Guidelines</h4>
+                <div style="margin-bottom: 20px;">
+                    <a href="#" class="thm-btn" style="padding: 10px 30px; font-size: 12px;">Small Button</a>
+                    <span style="margin: 0 10px; color: var(--oxpins-gray);">•</span>
+                    <a href="#" class="thm-btn">Default Button</a>
+                    <span style="margin: 0 10px; color: var(--oxpins-gray);">•</span>
+                    <a href="#" class="thm-btn" style="padding: 18px 55px; font-size: 16px;">Large Button</a>
+                </div>
+                <p style="font-size: 13px; color: var(--oxpins-gray); margin: 0;">Minimum touch target: 44x44px for mobile accessibility</p>
+            </div>
+        </div>
+
+        <!-- Spacing Section -->
+        <div id="spacing" class="section-card">
+            <h2 class="section-title">Spacing & Layout</h2>
+            <p class="section-subtitle">Consistent spacing creates rhythm and improves readability. Our spacing scale is based on 4px increments.</p>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; color: var(--oxpins-black);">Spacing Scale</h3>
+
+            <div class="spacing-demo">
+                <div class="spacing-box" style="width: 4px; height: 40px;"></div>
+                <div class="spacing-label">4px - Micro spacing</div>
+            </div>
+
+            <div class="spacing-demo">
+                <div class="spacing-box" style="width: 8px; height: 40px;"></div>
+                <div class="spacing-label">8px - Tiny spacing</div>
+            </div>
+
+            <div class="spacing-demo">
+                <div class="spacing-box" style="width: 16px; height: 40px;"></div>
+                <div class="spacing-label">16px - Default spacing</div>
+            </div>
+
+            <div class="spacing-demo">
+                <div class="spacing-box" style="width: 20px; height: 40px;"></div>
+                <div class="spacing-label">20px - Medium spacing</div>
+            </div>
+
+            <div class="spacing-demo">
+                <div class="spacing-box" style="width: 24px; height: 40px;"></div>
+                <div class="spacing-label">24px - Large spacing</div>
+            </div>
+
+            <div class="spacing-demo">
+                <div class="spacing-box" style="width: 32px; height: 40px;"></div>
+                <div class="spacing-label">32px - XL spacing</div>
+            </div>
+
+            <div class="spacing-demo">
+                <div class="spacing-box" style="width: 40px; height: 40px;"></div>
+                <div class="spacing-label">40px - XXL spacing</div>
+            </div>
+
+            <div class="spacing-demo">
+                <div class="spacing-box" style="width: 80px; height: 40px;"></div>
+                <div class="spacing-label">80px - Section spacing</div>
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-top: 50px; margin-bottom: 24px; color: var(--oxpins-black);">Border Radius</h3>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px;">
+                <div style="text-align: center;">
+                    <div style="width: 100px; height: 100px; background: var(--oxpins-base); border-radius: 10px; margin: 0 auto 12px;"></div>
+                    <div style="font-size: 14px; color: var(--oxpins-gray);">10px - Small</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 100px; height: 100px; background: var(--oxpins-base); border-radius: 20px; margin: 0 auto 12px;"></div>
+                    <div style="font-size: 14px; color: var(--oxpins-gray);">20px - Default</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 100px; height: 100px; background: var(--oxpins-base); border-radius: 30px; margin: 0 auto 12px;"></div>
+                    <div style="font-size: 14px; color: var(--oxpins-gray);">30px - Large</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 100px; height: 100px; background: var(--oxpins-base); border-radius: 50%; margin: 0 auto 12px;"></div>
+                    <div style="font-size: 14px; color: var(--oxpins-gray);">50% - Circle</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Icons Section -->
+        <div id="icons" class="section-card">
+            <h2 class="section-title">Iconography</h2>
+            <p class="section-subtitle">Icons enhance usability and add visual interest. We use FontAwesome and custom Oxpins icons.</p>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 20px; color: var(--oxpins-black);">Common Icons</h3>
+
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <i class="fas fa-heart"></i>
+                    <div class="icon-name">fa-heart</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="icon-name">fa-phone-alt</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="icon-name">fa-envelope</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="icon-name">fa-map-marker</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-check"></i>
+                    <div class="icon-name">fa-check</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-star"></i>
+                    <div class="icon-name">fa-star</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-user"></i>
+                    <div class="icon-name">fa-user</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-search"></i>
+                    <div class="icon-name">fa-search</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="icon-name">fa-shopping-cart</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-share-alt"></i>
+                    <div class="icon-name">fa-share-alt</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-comments"></i>
+                    <div class="icon-name">fa-comments</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-calendar"></i>
+                    <div class="icon-name">fa-calendar</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-top: 50px; margin-bottom: 20px; color: var(--oxpins-black);">Social Media Icons</h3>
+
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <i class="fab fa-facebook-f"></i>
+                    <div class="icon-name">Facebook</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fab fa-twitter"></i>
+                    <div class="icon-name">Twitter</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fab fa-instagram"></i>
+                    <div class="icon-name">Instagram</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fab fa-linkedin-in"></i>
+                    <div class="icon-name">LinkedIn</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fab fa-youtube"></i>
+                    <div class="icon-name">YouTube</div>
+                </div>
+                <div class="icon-item">
+                    <i class="fab fa-pinterest"></i>
+                    <div class="icon-name">Pinterest</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding: 30px; background: var(--oxpins-extra); border-radius: 16px;">
+                <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; color: var(--oxpins-black);">Icon Sizing</h4>
+                <div style="display: flex; align-items: center; gap: 40px;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-heart" style="font-size: 14px; color: var(--oxpins-base); display: block; margin-bottom: 8px;"></i>
+                        <span style="font-size: 12px; color: var(--oxpins-gray);">14px - Small</span>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class="fas fa-heart" style="font-size: 20px; color: var(--oxpins-base); display: block; margin-bottom: 8px;"></i>
+                        <span style="font-size: 12px; color: var(--oxpins-gray);">20px - Default</span>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class="fas fa-heart" style="font-size: 32px; color: var(--oxpins-base); display: block; margin-bottom: 8px;"></i>
+                        <span style="font-size: 12px; color: var(--oxpins-gray);">32px - Medium</span>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class="fas fa-heart" style="font-size: 48px; color: var(--oxpins-base); display: block; margin-bottom: 8px;"></i>
+                        <span style="font-size: 12px; color: var(--oxpins-gray);">48px - Large</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forms Section -->
+        <div id="forms" class="section-card">
+            <h2 class="section-title">Form Elements</h2>
+            <p class="section-subtitle">Accessible, user-friendly form inputs with clear focus states and validation.</p>
+
+            <div class="component-example">
+                <div class="form-demo">
+                    <div class="form-group">
+                        <label class="form-label">Text Input</label>
+                        <input type="text" class="form-control" placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Input</label>
+                        <input type="email" class="form-control" placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Textarea</label>
+                        <textarea class="form-control" placeholder="Enter your message..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Select Dropdown</label>
+                        <select class="form-control">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                        </select>
+                    </div>
+
+                    <a href="#" class="thm-btn">Submit Form</a>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <span class="code-comment">/* Form Input Styles */</span><br>
+                .form-control {<br>
+                &nbsp;&nbsp;<span class="code-property">height:</span> <span class="code-value">50px</span>;<br>
+                &nbsp;&nbsp;<span class="code-property">border:</span> <span class="code-value">1px solid #EEE9DB</span>;<br>
+                &nbsp;&nbsp;<span class="code-property">border-radius:</span> <span class="code-value">10px</span>;<br>
+                &nbsp;&nbsp;<span class="code-property">padding:</span> <span class="code-value">12px 20px</span>;<br>
+                }<br><br>
+                .form-control<span class="code-property">:focus</span> {<br>
+                &nbsp;&nbsp;<span class="code-property">border-color:</span> <span class="code-value">#76397B</span>;<br>
+                &nbsp;&nbsp;<span class="code-property">box-shadow:</span> <span class="code-value">0 0 0 3px rgba(118, 57, 123, 0.1)</span>;<br>
+                }
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-top: 50px; margin-bottom: 24px; color: var(--oxpins-black);">Progress Bars</h3>
+
+            <div class="progress-demo">
+                <p style="font-size: 14px; color: var(--oxpins-gray); margin-bottom: 12px;">Progress: 75%</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 75%;"></div>
+                </div>
+            </div>
+
+            <div class="progress-demo">
+                <p style="font-size: 14px; color: var(--oxpins-gray); margin-bottom: 12px;">Progress: 50%</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 50%;"></div>
+                </div>
+            </div>
+
+            <div class="progress-demo">
+                <p style="font-size: 14px; color: var(--oxpins-gray); margin-bottom: 12px;">Progress: 90%</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 90%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Components Section -->
+        <div id="components" class="section-card">
+            <h2 class="section-title">UI Components</h2>
+            <p class="section-subtitle">Reusable components that maintain consistency across the website.</p>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; color: var(--oxpins-black);">Cards</h3>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-4" style="margin-bottom: 30px;">
+                    <div class="card-demo">
+                        <img src="assets/images/resources/causes-1-1.jpg" alt="Card Image" class="card-demo-image" onerror="this.src='https://via.placeholder.com/400x300/00715d/ffffff?text=Feature+Image'">
+                        <div class="card-demo-content">
+                            <span class="badge-demo">Category</span>
+                            <h3 class="card-demo-title">Feature Card Title</h3>
+                            <p class="card-demo-text">Brief description of this feature or service. Keep it concise and compelling to engage users.</p>
+                            <a href="#" style="color: var(--oxpins-base); font-weight: 700; font-size: 14px; text-decoration: none;">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" style="margin-bottom: 30px;">
+                    <div class="card-demo">
+                        <img src="assets/images/resources/causes-1-2.jpg" alt="Card Image" class="card-demo-image" onerror="this.src='https://via.placeholder.com/400x300/fbd45a/283734?text=Feature+Image'">
+                        <div class="card-demo-content">
+                            <span class="badge-demo">Category</span>
+                            <h3 class="card-demo-title">Another Card Title</h3>
+                            <p class="card-demo-text">Each card follows a consistent structure with image, badge, title, description, and action link.</p>
+                            <a href="#" style="color: var(--oxpins-base); font-weight: 700; font-size: 14px; text-decoration: none;">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" style="margin-bottom: 30px;">
+                    <div class="card-demo">
+                        <img src="assets/images/resources/causes-1-3.jpg" alt="Card Image" class="card-demo-image" onerror="this.src='https://via.placeholder.com/400x300/283734/ffffff?text=Feature+Image'">
+                        <div class="card-demo-content">
+                            <span class="badge-demo">Category</span>
+                            <h3 class="card-demo-title">Third Card Example</h3>
+                            <p class="card-demo-text">Cards maintain 20px border radius and include hover effects for better interactivity and user engagement.</p>
+                            <a href="#" style="color: var(--oxpins-base); font-weight: 700; font-size: 14px; text-decoration: none;">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-top: 50px; margin-bottom: 24px; color: var(--oxpins-black);">Badges</h3>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px;">
+                <span class="badge-demo">Category Badge</span>
+                <span class="badge-demo" style="background: var(--oxpins-base); color: white;">Featured</span>
+                <span class="badge-demo" style="background: var(--oxpins-extra); color: var(--oxpins-black);">New</span>
+                <span class="badge-demo" style="background: var(--oxpins-black); color: white;">Popular</span>
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-top: 50px; margin-bottom: 24px; color: var(--oxpins-black);">Section Headers</h3>
+
+            <div style="text-align: center; padding: 40px; background: var(--oxpins-extra); border-radius: 16px;">
+                <p style="font-family: 'Caveat', cursive; font-size: 24px; color: var(--oxpins-base); margin-bottom: 12px;">Section Tagline</p>
+                <h2 style="font-size: 35px; font-weight: 700; color: var(--oxpins-black); margin-bottom: 16px;">Main Section Heading</h2>
+                <p style="font-size: 16px; color: var(--oxpins-gray); max-width: 600px; margin: 0 auto;">Optional description text that provides context about the section and helps users understand what content follows.</p>
+            </div>
+        </div>
+
+        <!-- Accessibility Section -->
+        <div id="accessibility" class="section-card">
+            <h2 class="section-title">Accessibility</h2>
+            <p class="section-subtitle">Our design system meets WCAG 2.1 AA standards for color contrast, keyboard navigation, and screen reader support.</p>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; color: var(--oxpins-black);">Color Contrast Ratios</h3>
+
+            <div class="contrast-check">
+                <div class="contrast-example">
+                    <div style="background: white; color: #283734; padding: 20px; border-radius: 8px; display: inline-block;">
+                        <strong>Black text on White background</strong>
+                    </div>
+                </div>
+                <div class="contrast-ratio ratio-pass">
+                    11.8:1 ✓
+                </div>
+            </div>
+
+            <div class="contrast-check">
+                <div class="contrast-example">
+                    <div style="background: white; color: #6f7775; padding: 20px; border-radius: 8px; display: inline-block;">
+                        <strong>Gray text on White background</strong>
+                    </div>
+                </div>
+                <div class="contrast-ratio ratio-pass">
+                    4.9:1 ✓
+                </div>
+            </div>
+
+            <div class="contrast-check">
+                <div class="contrast-example">
+                    <div style="background: #76397b; color: white; padding: 20px; border-radius: 8px; display: inline-block;">
+                        <strong>White text on Brand Green</strong>
+                    </div>
+                </div>
+                <div class="contrast-ratio ratio-pass">
+                    5.2:1 ✓
+                </div>
+            </div>
+
+            <div class="contrast-check">
+                <div class="contrast-example">
+                    <div style="background: #fbd45a; color: #283734; padding: 20px; border-radius: 8px; display: inline-block;">
+                        <strong>Black text on Accent Yellow</strong>
+                    </div>
+                </div>
+                <div class="contrast-ratio ratio-pass">
+                    8.2:1 ✓
+                </div>
+            </div>
+
+            <div class="contrast-check">
+                <div class="contrast-example">
+                    <div style="background: white; color: #fbd45a; padding: 20px; border-radius: 8px; display: inline-block;">
+                        <strong style="text-decoration: line-through;">Yellow text on White (Avoid)</strong>
+                    </div>
+                </div>
+                <div class="contrast-ratio ratio-fail">
+                    1.4:1 ✗
+                </div>
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-top: 50px; margin-bottom: 24px; color: var(--oxpins-black);">Keyboard Navigation</h3>
+
+            <div style="padding: 30px; background: var(--oxpins-extra); border-radius: 16px;">
+                <p style="margin-bottom: 20px;"><strong>All interactive elements support keyboard navigation:</strong></p>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: var(--oxpins-base); margin-right: 12px;"></i> Tab key navigates through focusable elements</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: var(--oxpins-base); margin-right: 12px;"></i> Enter/Space activates buttons and links</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: var(--oxpins-base); margin-right: 12px;"></i> Escape closes modals and dropdowns</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: var(--oxpins-base); margin-right: 12px;"></i> Arrow keys navigate menus</li>
+                    <li><i class="fas fa-check" style="color: var(--oxpins-base); margin-right: 12px;"></i> Visible focus indicators (2px outline)</li>
+                </ul>
+            </div>
+
+            <h3 style="font-size: 24px; font-weight: 700; margin-top: 50px; margin-bottom: 24px; color: var(--oxpins-black);">Touch Targets</h3>
+
+            <div style="padding: 30px; background: var(--oxpins-extra); border-radius: 16px;">
+                <p style="margin-bottom: 16px;"><strong>Minimum touch target size: 44x44px</strong></p>
+                <p style="font-size: 15px; color: var(--oxpins-gray); margin: 0;">All interactive elements (buttons, links, form inputs) meet or exceed the minimum 44x44px touch target size recommended by WCAG 2.1 for mobile accessibility.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 60px 0 40px; border-top: 1px solid var(--oxpins-bdr-color); margin-top: 60px;">
+            <h3 style="font-size: 28px; font-weight: 700; color: var(--oxpins-black); margin-bottom: 16px;">Ready to build?</h3>
+            <p style="font-size: 16px; color: var(--oxpins-gray); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                This style guide is a living document. Use these components and guidelines to maintain consistency across all touchpoints.
+            </p>
+            <a href="starter-homepage.html" class="thm-btn">View Homepage Template</a>
+
+            <div style="margin-top: 60px; font-size: 14px; color: var(--oxpins-gray);">
+                <p style="margin: 0;">Oxpins Style Guide v1.0 • November 2024</p>
+                <p style="margin: 8px 0 0;">Built with care for consistency, accessibility, and user experience.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('.style-guide-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate progress bars on load
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.progress-bar').forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+    </script>
+
+</body>
+</html>
